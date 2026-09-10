@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --fs-scale:1;
+    --fs-scale:1.2;
     --color-primary:#0B3D62;
     --color-primary-dark:#082C47;
     --color-primary-tint:#E6ECF1;
@@ -130,7 +130,7 @@
   .video-card{
     flex:0 0 auto;width:min(270px,78vw);scroll-snap-align:start;
     background:var(--color-white);border:1px solid var(--color-border);
-    display:flex;flex-direction:column;height:100%;max-height:420px;
+    display:flex;flex-direction:column;height:100%;max-height:460px;
     transition:box-shadow .15s ease,border-color .15s ease;
   }
   .video-card:hover{box-shadow:0 6px 16px rgba(11,61,98,.16);border-color:var(--color-primary);}
@@ -280,10 +280,9 @@
   </main>
 
   <footer class="app-footer">
-    <span data-i18n="footerCopyright">© 2026 台灣水資源與農業研究院</span>
+    <span data-i18n="footerCopyright">© 2026 台灣水資源與農業研究院｜新北市淡水區中正東路二段27之8號19樓｜(02) 2809-3497</span>
     <div class="footer-links">
       <button type="button" data-info="about" data-i18n="footerAbout">關於本計畫</button>
-      <button type="button" data-info="contact" data-i18n="footerContact">聯絡我們</button>
       <button type="button" data-info="policy" data-i18n="footerPolicy">政策連結</button>
     </div>
   </footer>
@@ -324,9 +323,8 @@ const translations = {
   panelDescFacility:{ zh:"灌溉渠道與設施之日常維護、巡查與管理實務", en:"Routine maintenance, inspection, and management practices for irrigation channels and facilities." },
   panelTitleCapacity:{ zh:"組織培力", en:"Organization Capacity Building" },
   panelDescCapacity:{ zh:"組織治理、財務與數位轉型相關實務課程", en:"Practical courses on organizational governance, finance, and digital transformation." },
-  footerCopyright:{ zh:"© 2026 台灣水資源與農業研究院", en:"© 2026 Taiwan Research Institute of Water Resources and Agriculture" },
+  footerCopyright:{ zh:"© 2026 台灣水資源與農業研究院｜新北市淡水區中正東路二段27之8號19樓｜(02) 2809-3497", en:"© 2026 Taiwan Research Institute of Water Resources and Agriculture | 19F, No. 27-8, Sec. 2, Zhongzheng E. Rd., Tamsui Dist., New Taipei City | (02) 2809-3497" },
   footerAbout:{ zh:"關於本計畫", en:"About This Program" },
-  footerContact:{ zh:"聯絡我們", en:"Contact Us" },
   footerPolicy:{ zh:"政策連結", en:"Policy Links" },
   closeBtn:{ zh:"關閉", en:"Close" },
   durationLabel:{ zh:"時長", en:"Duration" },
@@ -442,20 +440,22 @@ function applyLanguage(lang){
 }
 
 /* ---------- font size scaling ---------- */
-let fsScale = 1;
+const DEFAULT_FS_SCALE = 1.2;
+let fsScale = DEFAULT_FS_SCALE;
 function applyFontScale(){
   document.documentElement.style.setProperty("--fs-scale", fsScale.toFixed(2));
 }
+applyFontScale();
 document.getElementById("fontDec").addEventListener("click", ()=>{
-  fsScale = Math.max(0.8, +(fsScale - 0.1).toFixed(2));
+  fsScale = Math.max(0.9, +(fsScale - 0.1).toFixed(2));
   applyFontScale();
 });
 document.getElementById("fontInc").addEventListener("click", ()=>{
-  fsScale = Math.min(1.4, +(fsScale + 0.1).toFixed(2));
+  fsScale = Math.min(1.6, +(fsScale + 0.1).toFixed(2));
   applyFontScale();
 });
 document.getElementById("fontReset").addEventListener("click", ()=>{
-  fsScale = 1;
+  fsScale = DEFAULT_FS_SCALE;
   applyFontScale();
 });
 
@@ -501,10 +501,6 @@ const infoContent = {
   about: {
     zh: `<h3>關於本計畫</h3><p>本平台為「擴大灌溉服務組織課程平台」，由台灣水資源與農業研究院建置維護，提供各灌溉服務組織管理人員及會員自主學習使用。</p><p>課程分為「設施管理」與「組織培力」兩大類，未來將持續增修課程內容。</p>`,
     en: `<h3>About This Program</h3><p>This platform is maintained by the Taiwan Research Institute of Water Resources and Agriculture, providing self-paced learning resources for management staff and members of irrigation service organizations.</p><p>Courses are divided into two categories: "Facility Management" and "Organization Capacity Building," with more content to be added in the future.</p>`
-  },
-  contact: {
-    zh: `<h3>聯絡我們</h3><p>台灣水資源與農業研究院</p><p>地址：新北市淡水區中正東路二段27之8號19樓</p><p>電話：(02) 2809-3497</p>`,
-    en: `<h3>Contact Us</h3><p>Taiwan Research Institute of Water Resources and Agriculture</p><p>Address: 19F, No. 27-8, Sec. 2, Zhongzheng E. Rd., Tamsui Dist., New Taipei City</p><p>Phone: (02) 2809-3497</p>`
   },
   policy: {
     zh: `<h3>政策連結</h3><p><a href="#">隱私權政策</a></p><p><a href="#">資訊安全政策</a></p><p><a href="#">著作權聲明</a></p>`,
