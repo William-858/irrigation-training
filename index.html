@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>灌溉服務組織培力數位學習平台</title>
+<title>擴大灌溉服務組織課程平台</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -217,7 +217,6 @@
         <button type="button" id="fontDec" aria-label="縮小字級">A-</button>
         <button type="button" id="fontReset" aria-label="重設字級">A</button>
         <button type="button" id="fontInc" aria-label="放大字級">A+</button>
-        <button type="button" id="langToggle">EN</button>
       </div>
     </div>
   </div>
@@ -228,10 +227,8 @@
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C9 7 6 10.5 6 14a6 6 0 0012 0c0-3.5-3-7-6-11z" stroke="#F3F1E8" stroke-width="1.6" fill="#F3F1E8" fill-opacity=".15"/><path d="M12 3C9 7 6 10.5 6 14a6 6 0 0012 0c0-3.5-3-7-6-11z" stroke="#F3F1E8" stroke-width="1.6"/></svg>
       </div>
       <div class="brand-text">
-        <div class="agency-zh" data-i18n="agencyTitle">農田水利署．灌溉服務組織培力平台</div>
-        <div class="agency-en">IRRIGATION AGENCY · ORGANIZATION CAPACITY BUILDING</div>
+        <div class="agency-zh" data-i18n="agencyTitle">擴大灌溉服務組織課程平台</div>
       </div>
-      <div class="brand-right" data-i18n="brandRight">主辦：農田水利署　執行：台灣水資源與農業研究院</div>
     </div>
   </div>
 
@@ -283,7 +280,7 @@
   </main>
 
   <footer class="app-footer">
-    <span data-i18n="footerCopyright">© 2026 農田水利署／台灣水資源與農業研究院</span>
+    <span data-i18n="footerCopyright">© 2026 台灣水資源與農業研究院</span>
     <div class="footer-links">
       <button type="button" data-info="about" data-i18n="footerAbout">關於本計畫</button>
       <button type="button" data-info="contact" data-i18n="footerContact">聯絡我們</button>
@@ -320,15 +317,14 @@ const translations = {
   orgName:{ zh:"台灣水資源與農業研究院", en:"Taiwan Research Institute of Water Resources and Agriculture" },
   programName:{ zh:"114 年度擴大灌溉服務組織管理及行政輔導研析計畫", en:"FY114 Expanded Irrigation Service Organization Management and Administrative Guidance Project" },
   fontSizeLabel:{ zh:"字級", en:"Text size" },
-  agencyTitle:{ zh:"農田水利署．灌溉服務組織培力平台", en:"Irrigation Agency · Organization Capacity Building Platform" },
-  brandRight:{ zh:"主辦：農田水利署　執行：台灣水資源與農業研究院", en:"Host: Irrigation Agency · Executed by: Taiwan Research Institute of Water Resources and Agriculture" },
+  agencyTitle:{ zh:"擴大灌溉服務組織課程平台", en:"Expanded Irrigation Service Organization Course Platform" },
   tabFacility:{ zh:"設施管理", en:"Facility Management" },
   tabCapacity:{ zh:"組織培力", en:"Organization Capacity Building" },
   panelTitleFacility:{ zh:"設施管理", en:"Facility Management" },
   panelDescFacility:{ zh:"灌溉渠道與設施之日常維護、巡查與管理實務", en:"Routine maintenance, inspection, and management practices for irrigation channels and facilities." },
   panelTitleCapacity:{ zh:"組織培力", en:"Organization Capacity Building" },
   panelDescCapacity:{ zh:"組織治理、財務與數位轉型相關實務課程", en:"Practical courses on organizational governance, finance, and digital transformation." },
-  footerCopyright:{ zh:"© 2026 農田水利署／台灣水資源與農業研究院", en:"© 2026 Irrigation Agency / Taiwan Research Institute of Water Resources and Agriculture" },
+  footerCopyright:{ zh:"© 2026 台灣水資源與農業研究院", en:"© 2026 Taiwan Research Institute of Water Resources and Agriculture" },
   footerAbout:{ zh:"關於本計畫", en:"About This Program" },
   footerContact:{ zh:"聯絡我們", en:"Contact Us" },
   footerPolicy:{ zh:"政策連結", en:"Policy Links" },
@@ -442,12 +438,8 @@ function applyLanguage(lang){
     const key = el.dataset.i18n;
     if(translations[key]) el.textContent = translations[key][lang];
   });
-  document.getElementById("langToggle").textContent = lang === "zh" ? "EN" : "中文";
   renderAllCards();
 }
-document.getElementById("langToggle").addEventListener("click", ()=>{
-  applyLanguage(currentLang === "zh" ? "en" : "zh");
-});
 
 /* ---------- font size scaling ---------- */
 let fsScale = 1;
@@ -507,12 +499,12 @@ setTimeout(updateArrows, 200);
 /* info modal */
 const infoContent = {
   about: {
-    zh: `<h3>關於本計畫</h3><p>本平台為「114年度擴大灌溉服務組織管理及行政輔導研析計畫」線上課程平台，由農田水利署主辦、台灣水資源與農業研究院執行，提供各灌溉服務組織管理人員及會員自主學習使用。</p><p>課程分為「設施管理」與「組織培力」兩大類，未來將持續增修課程內容。</p>`,
-    en: `<h3>About This Program</h3><p>This platform is the online course platform for the "FY114 Expanded Irrigation Service Organization Management and Administrative Guidance Project," hosted by the Irrigation Agency and executed by the Taiwan Research Institute of Water Resources and Agriculture. It provides self-paced learning resources for management staff and members of irrigation service organizations nationwide.</p><p>Courses are divided into two categories: "Facility Management" and "Organization Capacity Building," with more content to be added in the future.</p>`
+    zh: `<h3>關於本計畫</h3><p>本平台為「擴大灌溉服務組織課程平台」，由台灣水資源與農業研究院建置維護，提供各灌溉服務組織管理人員及會員自主學習使用。</p><p>課程分為「設施管理」與「組織培力」兩大類，未來將持續增修課程內容。</p>`,
+    en: `<h3>About This Program</h3><p>This platform is maintained by the Taiwan Research Institute of Water Resources and Agriculture, providing self-paced learning resources for management staff and members of irrigation service organizations.</p><p>Courses are divided into two categories: "Facility Management" and "Organization Capacity Building," with more content to be added in the future.</p>`
   },
   contact: {
-    zh: `<h3>聯絡我們</h3><p>執行單位：台灣水資源與農業研究院</p><p>地址：（請填入實際地址）</p><p>電話：（請填入實際電話）</p><p>Email：（請填入實際信箱）</p>`,
-    en: `<h3>Contact Us</h3><p>Executing Organization: Taiwan Research Institute of Water Resources and Agriculture</p><p>Address: (please fill in actual address)</p><p>Phone: (please fill in actual phone number)</p><p>Email: (please fill in actual email)</p>`
+    zh: `<h3>聯絡我們</h3><p>台灣水資源與農業研究院</p><p>地址：新北市淡水區中正東路二段27之8號19樓</p><p>電話：(02) 2809-3497</p>`,
+    en: `<h3>Contact Us</h3><p>Taiwan Research Institute of Water Resources and Agriculture</p><p>Address: 19F, No. 27-8, Sec. 2, Zhongzheng E. Rd., Tamsui Dist., New Taipei City</p><p>Phone: (02) 2809-3497</p>`
   },
   policy: {
     zh: `<h3>政策連結</h3><p><a href="#">隱私權政策</a></p><p><a href="#">資訊安全政策</a></p><p><a href="#">著作權聲明</a></p>`,
